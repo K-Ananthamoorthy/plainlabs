@@ -71,6 +71,12 @@ become new *edges*, not a rewrite.
   (grounded in pack text, instructed never to diagnose).
 - **Safety output**: severity-sorted report card, canned urgent message for critical values
   (the model is never asked to phrase those), and a disclaimer on every result.
+- **Streamlit UI** — upload a report → a one-line brief + colour-coded report card → a
+  **grounded chat** to ask questions about your results. The chat may only use your findings
+  and the packs (never invents facts, never diagnoses, never prescribes, defers to a doctor).
+- **Session memory** — tell it "I'm 34, vegetarian, feeling tired" and it remembers those
+  facts in a *What I know about you* panel and uses them to contextualise answers — but user
+  statements never override a computed status.
 - **CLI**: `python -m plainlabs <report.pdf|.png|.txt>`.
 
 ### Example
@@ -103,7 +109,10 @@ ollama pull medgemma:4b   # or set PLAINLABS_SLM=llama3.2:3b
 uv sync
 brew install tesseract         # only needed for photo (image) reports
 
-# 3. Explain a report
+# 3a. UI — upload, brief, and chat
+uv run streamlit run app.py
+
+# 3b. or CLI
 uv run python -m plainlabs evals/golden/report_basic.txt
 ```
 
@@ -129,7 +138,7 @@ Honestly scoped — these are designed in [docs/PRD.md](docs/PRD.md) but not imp
 - **No-diagnosis guardrail filter** — a deterministic pass that blocks diagnostic phrasing.
 - **Eval harness** — golden reports scored on extraction accuracy, range correctness, and
   explanation groundedness.
-- **Streamlit UI** and **LangSmith tracing**.
+- **LangSmith tracing** across the graph and chat.
 
 ## Safety & scope
 

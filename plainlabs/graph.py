@@ -111,6 +111,10 @@ def build_graph():
     return g.compile()
 
 
+def analyze(report_path: str) -> dict:
+    """Full structured result: findings, unknown tests, and the text report card."""
+    return build_graph().invoke({"report_path": report_path})
+
+
 def run(report_path: str) -> str:
-    result = build_graph().invoke({"report_path": report_path})
-    return result["report_card"]
+    return analyze(report_path)["report_card"]
