@@ -56,6 +56,12 @@ def _num(token: str) -> float | None:
 _FLAGS = {"-", "low", "high", "normal", "borderline", "h", "l", "abnormal"}
 
 
+def _is_flag(token: str) -> bool:
+    """Report status markers: '-', 'Low', 'High', and abbreviations like 'L**', 'H*'."""
+    t = token.strip("*").lower()
+    return t == "" or t in _FLAGS or (len(t) == 1 and t.isalpha())
+
+
 def _parse_line(line: str) -> ParsedValue | None:
     """Tolerant parse: real reports add flag columns, so we locate fields by role
     rather than fixed position. name = first field; value = first number after it;
@@ -76,7 +82,7 @@ def _parse_line(line: str) -> ParsedValue | None:
     after = rest[v_idx + 1:]
     nums = [n for p in after if (n := _num(p)) is not None]
     rng = (nums[-2], nums[-1]) if len(nums) >= 2 and nums[-2] <= nums[-1] else None
-    unit = next((p for p in after if _num(p) is None and p.lower() not in _FLAGS), "")
+    unit = next((p for p in after if _num(p) is None and not _is_flag(p)), "")
     return ParsedValue(name=name, value=value, unit=unit, report_range=rng)
 
 
