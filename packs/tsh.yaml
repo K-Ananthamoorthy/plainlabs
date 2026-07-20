@@ -1,0 +1,15 @@
+id: tsh
+name: TSH (Thyroid Stimulating Hormone)
+panel: thyroid
+aliases: [tsh, thyroid stimulating hormone, thyrotropin]
+unit: mIU/L
+fallback_ranges:
+  normal: [0.4, 4.0]
+critical_above: 100.0   # profound hypothyroidism — urgent
+explanation: >
+  TSH is a hormone from the pituitary gland that tells the thyroid how much hormone to
+  make. A high TSH usually means an underactive thyroid (hypothyroidism); a low TSH
+  usually means an overactive thyroid (hyperthyroidism). Both directions are worth
+  discussing with your doctor.
+sources:
+  - https://medlineplus.gov/lab-tests/tsh-thyroid-stimulating-hormone-test/

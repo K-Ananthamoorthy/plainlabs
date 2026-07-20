@@ -1,0 +1,14 @@
+id: ast
+name: AST (SGOT)
+panel: liver
+aliases: [ast, sgot, aspartate aminotransferase, aspartate transaminase, ast/sgot]
+unit: U/L
+fallback_ranges:
+  normal: [10.0, 40.0]
+critical_above: 1000.0  # marked hepatocellular injury — urgent
+explanation: >
+  AST (also called SGOT) is an enzyme found in the liver and other tissues like muscle.
+  Raised levels can point to liver injury, though muscle problems can also raise it.
+  It is read alongside ALT in the liver function test (LFT).
+sources:
+  - https://medlineplus.gov/lab-tests/ast-test/

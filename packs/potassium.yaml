@@ -1,0 +1,15 @@
+id: potassium
+name: Potassium
+panel: electrolytes
+aliases: [potassium, k, k+, serum potassium]
+unit: mmol/L
+fallback_ranges:
+  normal: [3.5, 5.1]
+critical_below: 2.5     # severe hypokalemia — heart rhythm risk, urgent
+critical_above: 6.5     # severe hyperkalemia — heart rhythm risk, urgent
+explanation: >
+  Potassium is an electrolyte essential for the heart and muscles to work properly.
+  Both low and high potassium can disturb the heart's rhythm, so values well outside the
+  normal range need prompt medical attention.
+sources:
+  - https://medlineplus.gov/lab-tests/potassium-blood-test/

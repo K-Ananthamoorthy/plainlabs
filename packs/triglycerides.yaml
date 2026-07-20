@@ -1,0 +1,16 @@
+id: triglycerides
+name: Triglycerides
+panel: lipid
+aliases: [triglycerides, tg, trigs, serum triglycerides]
+unit: mg/dL
+fallback_ranges:
+  normal: [0.0, 149.0]
+  borderline: [150.0, 199.0]
+  abnormal: [200.0, 1000.0]
+critical_above: 500.0   # very high — pancreatitis risk, urgent
+explanation: >
+  Triglycerides are a type of fat in the blood. Below 150 mg/dL is normal; 150-199 is
+  borderline high; 200 and above is high. Very high levels can inflame the pancreas.
+  Levels are affected by recent meals, so this test is usually done fasting.
+sources:
+  - https://medlineplus.gov/lab-tests/triglycerides-test/

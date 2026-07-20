@@ -1,0 +1,15 @@
+id: hdl
+name: HDL Cholesterol
+panel: lipid
+aliases: [hdl, hdl cholesterol, high density lipoprotein, hdl-c]
+unit: mg/dL
+# HDL is protective: LOW is the concern, so the abnormal band sits below normal.
+fallback_ranges:
+  abnormal: [0.0, 39.0]
+  normal: [40.0, 200.0]
+explanation: >
+  HDL is the "good" cholesterol — it helps remove other cholesterol from the blood.
+  Here, higher is better: 40 mg/dL and above is desirable and 60+ is protective, while
+  below 40 is a risk factor for heart disease. It is part of the lipid profile.
+sources:
+  - https://medlineplus.gov/lab-tests/cholesterol-levels/

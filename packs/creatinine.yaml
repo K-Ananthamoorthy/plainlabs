@@ -1,0 +1,15 @@
+id: creatinine
+name: Creatinine
+panel: kidney
+aliases: [creatinine, serum creatinine, s. creatinine, creat]
+unit: mg/dL
+fallback_ranges:
+  normal: [0.6, 1.3]
+  abnormal: [1.4, 15.0]
+critical_above: 5.0     # marked kidney impairment — urgent
+explanation: >
+  Creatinine is a waste product from muscle activity that healthy kidneys filter out.
+  A high level suggests the kidneys are not clearing waste as well as they should.
+  It is a core part of the kidney function test (KFT) and is used to estimate eGFR.
+sources:
+  - https://medlineplus.gov/lab-tests/creatinine-test/

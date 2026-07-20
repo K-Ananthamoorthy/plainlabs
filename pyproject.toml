@@ -1,0 +1,17 @@
+[project]
+name = "plainlabs"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-ollama>=1.1.0",
+    "langgraph>=1.2.9",
+    "pillow>=12.3.0",
+    "pypdf>=6.14.2",
+    "pytesseract>=0.3.13",
+    "pyyaml>=6.0.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

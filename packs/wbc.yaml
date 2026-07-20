@@ -1,0 +1,15 @@
+id: wbc
+name: White Blood Cell Count
+panel: cbc
+aliases: [wbc, white blood cell count, total leukocyte count, tlc, leukocytes]
+unit: 10^3/uL
+fallback_ranges:
+  normal: [4.0, 11.0]
+critical_below: 2.0     # severe leukopenia — infection risk, urgent
+critical_above: 30.0    # marked leukocytosis — urgent
+explanation: >
+  White blood cells are the immune system's defence against infection. A high count
+  often points to infection or inflammation; a low count can mean the body is less
+  able to fight infection. It is a core part of the complete blood count (CBC).
+sources:
+  - https://medlineplus.gov/lab-tests/white-blood-count-wbc/

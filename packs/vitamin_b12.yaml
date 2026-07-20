@@ -1,0 +1,16 @@
+id: vitamin_b12
+name: Vitamin B12
+panel: vitamins
+aliases: [vitamin b12, b12, cobalamin, vit b12, cyanocobalamin]
+unit: pg/mL
+# Deficiency is the common concern, so abnormal sits BELOW normal.
+fallback_ranges:
+  abnormal: [0.0, 199.0]
+  borderline: [200.0, 299.0]
+  normal: [300.0, 900.0]
+explanation: >
+  Vitamin B12 is needed for healthy nerves and red blood cells. Low levels can cause
+  tiredness, tingling, and anemia, and are common in vegetarian diets. Below about
+  200 pg/mL is deficient and 200-299 borderline; deficiency is treatable with supplements.
+sources:
+  - https://medlineplus.gov/lab-tests/vitamin-b12-level/

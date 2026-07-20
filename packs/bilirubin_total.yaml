@@ -1,0 +1,15 @@
+id: bilirubin_total
+name: Total Bilirubin
+panel: liver
+aliases: [total bilirubin, bilirubin total, serum bilirubin, bilirubin]
+unit: mg/dL
+fallback_ranges:
+  normal: [0.3, 1.2]
+  abnormal: [1.3, 30.0]
+critical_above: 15.0    # very high — urgent
+explanation: >
+  Bilirubin is a yellow substance made when red blood cells break down; the liver clears
+  it. High levels can cause yellowing of the skin or eyes (jaundice) and may signal liver
+  or bile-duct problems. It is part of the liver function test (LFT).
+sources:
+  - https://medlineplus.gov/lab-tests/bilirubin-blood-test/

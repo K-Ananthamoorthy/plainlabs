@@ -1,0 +1,14 @@
+id: urea
+name: Blood Urea
+panel: kidney
+aliases: [urea, blood urea, serum urea, bun urea]
+unit: mg/dL
+fallback_ranges:
+  normal: [15.0, 45.0]
+  abnormal: [46.0, 300.0]
+explanation: >
+  Urea is a waste product from protein breakdown that the kidneys remove. High levels can
+  reflect reduced kidney function, dehydration, or a high-protein state. It is read with
+  creatinine in the kidney function test (KFT).
+sources:
+  - https://medlineplus.gov/lab-tests/blood-urea-nitrogen-bun/

@@ -1,0 +1,15 @@
+id: platelets
+name: Platelet Count
+panel: cbc
+aliases: [platelets, platelet count, plt, thrombocytes]
+unit: 10^3/uL
+fallback_ranges:
+  normal: [150.0, 410.0]
+critical_below: 50.0    # bleeding risk — urgent
+critical_above: 1000.0  # clotting risk — urgent
+explanation: >
+  Platelets are cell fragments that help blood clot and stop bleeding. A low count
+  can increase bruising and bleeding; a very high count can raise the risk of clots.
+  It is part of the complete blood count (CBC).
+sources:
+  - https://medlineplus.gov/lab-tests/platelet-count/

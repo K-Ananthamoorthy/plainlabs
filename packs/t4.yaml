@@ -1,0 +1,13 @@
+id: t4
+name: T4 (Thyroxine)
+panel: thyroid
+aliases: [t4, thyroxine, total t4, tetraiodothyronine]
+unit: ug/dL
+fallback_ranges:
+  normal: [5.0, 12.0]
+explanation: >
+  T4 (thyroxine) is the main hormone made by the thyroid gland. Low T4 can indicate an
+  underactive thyroid; high T4 an overactive one. It is usually read together with TSH
+  to understand thyroid function.
+sources:
+  - https://medlineplus.gov/lab-tests/t4-test/

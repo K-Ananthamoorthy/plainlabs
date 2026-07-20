@@ -1,0 +1,15 @@
+id: sodium
+name: Sodium
+panel: electrolytes
+aliases: [sodium, na, na+, serum sodium]
+unit: mmol/L
+fallback_ranges:
+  normal: [135.0, 145.0]
+critical_below: 120.0   # severe hyponatremia — urgent
+critical_above: 160.0   # severe hypernatremia — urgent
+explanation: >
+  Sodium is an electrolyte that helps control fluid balance and nerve and muscle function.
+  Both low and high sodium can cause symptoms and, at extremes, are dangerous. Levels are
+  often affected by hydration and certain medications.
+sources:
+  - https://medlineplus.gov/lab-tests/sodium-blood-test/

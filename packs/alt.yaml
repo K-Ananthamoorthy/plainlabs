@@ -1,0 +1,14 @@
+id: alt
+name: ALT (SGPT)
+panel: liver
+aliases: [alt, sgpt, alanine aminotransferase, alanine transaminase, alt/sgpt]
+unit: U/L
+fallback_ranges:
+  normal: [7.0, 56.0]
+critical_above: 1000.0  # marked hepatocellular injury — urgent
+explanation: >
+  ALT (also called SGPT) is an enzyme found mainly in the liver. Raised levels can be a
+  sign of liver inflammation or damage from causes such as fatty liver, infection, or
+  medication. It is part of the liver function test (LFT).
+sources:
+  - https://medlineplus.gov/lab-tests/alt-blood-test/

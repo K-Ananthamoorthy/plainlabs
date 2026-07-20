@@ -1,0 +1,16 @@
+id: vitamin_d
+name: Vitamin D (25-OH)
+panel: vitamins
+aliases: [vitamin d, 25-oh vitamin d, 25 hydroxy vitamin d, vit d, vitamin d3, 25(oh)d]
+unit: ng/mL
+# Deficiency is the common finding, so abnormal/borderline sit BELOW normal.
+fallback_ranges:
+  abnormal: [0.0, 19.0]
+  borderline: [20.0, 29.0]
+  normal: [30.0, 100.0]
+explanation: >
+  Vitamin D helps the body absorb calcium and keep bones and muscles healthy. Below
+  20 ng/mL is considered deficient and 20-29 insufficient, both very common; 30-100 is
+  generally sufficient. Deficiency is usually managed with supplements and sunlight.
+sources:
+  - https://medlineplus.gov/lab-tests/vitamin-d-test/

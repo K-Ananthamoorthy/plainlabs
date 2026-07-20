@@ -1,0 +1,17 @@
+id: glucose_fasting
+name: Fasting Blood Glucose
+panel: diabetes
+aliases: [fasting blood glucose, fasting glucose, fbs, fasting blood sugar, glucose fasting]
+unit: mg/dL
+fallback_ranges:
+  normal: [70.0, 99.0]
+  borderline: [100.0, 125.0]
+  abnormal: [126.0, 400.0]
+critical_below: 50.0    # hypoglycemia — urgent
+critical_above: 400.0   # severe hyperglycemia — urgent
+explanation: >
+  Fasting blood glucose measures blood sugar after not eating for at least 8 hours.
+  70-99 mg/dL is normal; 100-125 suggests prediabetes; 126 and above on repeat testing
+  is in the diabetes range. Very low or very high values need prompt attention.
+sources:
+  - https://medlineplus.gov/lab-tests/blood-glucose-test/

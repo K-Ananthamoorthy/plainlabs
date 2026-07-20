@@ -1,0 +1,15 @@
+id: total_cholesterol
+name: Total Cholesterol
+panel: lipid
+aliases: [total cholesterol, cholesterol total, serum cholesterol, cholesterol]
+unit: mg/dL
+fallback_ranges:
+  normal: [0.0, 199.0]
+  borderline: [200.0, 239.0]
+  abnormal: [240.0, 500.0]
+explanation: >
+  Total cholesterol is the overall amount of cholesterol in your blood. Below 200 mg/dL
+  is desirable; 200-239 is borderline high; 240 and above is high and raises the risk of
+  heart disease over time. It is part of the lipid profile.
+sources:
+  - https://medlineplus.gov/lab-tests/cholesterol-levels/

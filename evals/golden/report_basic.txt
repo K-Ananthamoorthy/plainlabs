@@ -1,0 +1,17 @@
+        CITY DIAGNOSTICS — COMPLETE HEALTH CHECKUP
+        Patient: (redacted)     Age: 34     Sex: M
+
+  TEST                     RESULT      UNIT        REFERENCE RANGE
+  ------------------------------------------------------------------
+  Hemoglobin               14.2        g/dL        13.0 - 17.0
+  WBC Count                7.8         10^3/uL     4.0 - 11.0
+  Platelet Count           240         10^3/uL     150 - 410
+  Fasting Blood Glucose    108         mg/dL       70 - 99
+  HbA1c                    6.1         %           4.0 - 5.6
+  Total Cholesterol        215         mg/dL       < 200
+  LDL Cholesterol          142         mg/dL       < 100
+  HDL Cholesterol          38          mg/dL       > 40
+  Triglycerides            180         mg/dL       < 150
+  TSH                      5.4         mIU/L       0.4 - 4.0
+  Creatinine               0.9         mg/dL       0.6 - 1.3
+  Vitamin D (25-OH)        18          ng/mL       30 - 100

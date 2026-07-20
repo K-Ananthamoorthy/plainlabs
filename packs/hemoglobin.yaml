@@ -1,0 +1,19 @@
+id: hemoglobin
+name: Hemoglobin
+panel: cbc
+aliases: [hemoglobin, hb, hgb, haemoglobin]
+unit: g/dL
+# Adult reference ranges (sexes differ; using a combined adult band as fallback —
+# the report's own printed range is preferred at lookup time).
+fallback_ranges:
+  abnormal: [0.0, 11.9]
+  borderline: [12.0, 12.9]
+  normal: [13.0, 17.0]
+critical_below: 7.0     # severe anemia — urgent
+critical_above: 20.0    # polycythemia — urgent
+explanation: >
+  Hemoglobin is the protein in red blood cells that carries oxygen around the body.
+  Low hemoglobin (anemia) can cause tiredness and breathlessness; very high levels
+  can thicken the blood. It is one of the core values in a complete blood count (CBC).
+sources:
+  - https://medlineplus.gov/lab-tests/hemoglobin-test/

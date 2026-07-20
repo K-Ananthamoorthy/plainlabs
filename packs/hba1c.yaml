@@ -1,0 +1,16 @@
+id: hba1c
+name: HbA1c
+panel: diabetes
+aliases: [hba1c, glycated hemoglobin, glycosylated hemoglobin, glycosylated hb, a1c, hb a1c]
+unit: "%"
+fallback_ranges:
+  normal: [4.0, 5.6]
+  borderline: [5.7, 6.4]
+  abnormal: [6.5, 20.0]
+critical_above: 15.0    # extreme hyperglycemia — urgent
+explanation: >
+  HbA1c reflects your average blood sugar over roughly the past three months.
+  Below 5.7% is normal; 5.7-6.4% suggests prediabetes; 6.5% and above is in the
+  diabetes range. It is the standard test for diagnosing and monitoring diabetes.
+sources:
+  - https://medlineplus.gov/lab-tests/hemoglobin-a1c-hba1c-test/
