@@ -217,7 +217,9 @@ report card fully offline; evals green; traces visible; contribution path docume
 ## 14. Decisions (locked 20 Jul 2026)
 
 1. Name: **PlainLabs** — labs in plain language.
-2. SLM: **gemma4:e2b-it-qat** via Ollama (llama.cpp `llama-server` documented alternative).
+2. SLM: **medgemma:4b** via Ollama — Google's medically-tuned Gemma 3, trained on
+   lab-report extraction (HAI-DEF license; used for language only, not medical decisions).
+   Model is a config value; any Ollama model works.
 3. Escalation provider: **Groq** (fast, free tier), config-switchable; `--local-only` supported.
 4. Tracing: **LangSmith** (hosted free tier).
 5. Laptop/desktop only. Mobile is explicitly out of scope.

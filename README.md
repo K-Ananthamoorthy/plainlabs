@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![LangGraph](https://img.shields.io/badge/LangGraph-agent-8b5cf6)
-![Ollama](https://img.shields.io/badge/Ollama-gemma4%3Ae2b--it--qat-000000)
+![Ollama](https://img.shields.io/badge/Ollama-medgemma%3A4b-000000)
 ![Local](https://img.shields.io/badge/100%25-offline-0d9488)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -23,7 +23,22 @@ Every `normal / borderline / abnormal / critical` status is a deterministic comp
 against curated reference data — **never** model output. The small language model is kept
 on a short leash: it reads the messy report into structured values and phrases the
 explanations, but it is never allowed to decide whether a number is dangerous. That split
-is what makes a 2B model safe to put in front of a health tool.
+is what makes a small model safe to put in front of a health tool.
+
+### The model: MedGemma 4B
+
+PlainLabs runs on [MedGemma 4B](https://deepmind.google/models/gemma/medgemma/) — Google's
+medically-tuned Gemma 3, trained on medical text and, notably, on **extracting structured
+data from unstructured lab reports** (exactly our parsing task). It runs locally via Ollama
+(~3.3 GB). Two things to be clear about:
+
+- MedGemma is **not clinical-grade** and Google says its outputs must not directly drive
+  diagnosis. PlainLabs honours that by design — the model never makes the medical call.
+- It is licensed under Google's [Health AI Developer Foundations](https://developers.google.com/health-ai-developer-foundations/medgemma)
+  terms (the model, not this repo's MIT-licensed code). You pull the weights yourself.
+
+The model is a config value — set `PLAINLABS_SLM` to any Ollama model (`llama3.2:3b`,
+`gemma4:e2b-it-qat`, …). Nothing in the architecture depends on the choice.
 
 ## Architecture
 
@@ -79,10 +94,10 @@ Always discuss your results with a doctor.
 ## Run it
 
 ```bash
-# 1. Model (~4 GB, one time)
-brew install ollama            # or https://ollama.com
-ollama serve                   # in its own terminal
-ollama pull gemma4:e2b-it-qat  # or set PLAINLABS_SLM=llama3.2:3b
+# 1. Model (~3.3 GB, one time)
+brew install ollama       # or https://ollama.com
+ollama serve              # in its own terminal
+ollama pull medgemma:4b   # or set PLAINLABS_SLM=llama3.2:3b
 
 # 2. Python env (uv: https://docs.astral.sh/uv/)
 uv sync
