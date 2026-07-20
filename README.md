@@ -72,8 +72,10 @@ become new *edges*, not a rewrite.
 - **Safety output**: severity-sorted report card, canned urgent message for critical values
   (the model is never asked to phrase those), and a disclaimer on every result.
 - **Streamlit UI** — upload a report → a one-line brief + colour-coded report card → a
-  **grounded chat** to ask questions about your results. The chat may only use your findings
-  and the packs (never invents facts, never diagnoses, never prescribes, defers to a doctor).
+  **chat** to ask about your results *and* general wellness. It gives practical suggestions
+  (foods, diet, lifestyle) and only declines a doctor's-job things — prescribing a specific
+  medicine or dose, diagnosing a serious disease, or a treatment plan — while still offering
+  general help. The report's computed statuses stay fixed truth it can't override.
 - **Session memory** — tell it "I'm 34, vegetarian, feeling tired" and it remembers those
   facts in a *What I know about you* panel and uses them to contextualise answers — but user
   statements never override a computed status.
@@ -142,9 +144,11 @@ Honestly scoped — these are designed in [docs/PRD.md](docs/PRD.md) but not imp
 
 ## Safety & scope
 
-PlainLabs is a health-**literacy** tool, not a diagnostic one. It explains what values mean
-and never names a condition you "have" or suggests treatment. Specialized reports
-(pathology, radiology, genetics, tumor markers) are out of scope. Always consult a doctor.
+PlainLabs is a health-**literacy and wellness** tool, not a diagnostic one. It explains
+results and gives general lifestyle suggestions, but does not prescribe medicines or doses,
+diagnose serious disease, or write treatment plans — those are a doctor's job, and it says so.
+Specialized reports (pathology, radiology, genetics, tumor markers) are out of scope.
+Always consult a doctor.
 
 ## License
 
