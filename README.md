@@ -102,19 +102,16 @@ Always discuss your results with a doctor.
 ## Run it
 
 ```bash
-# 1. Model (~3.3 GB, one time)
-brew install ollama       # or https://ollama.com
-ollama serve              # in its own terminal
-ollama pull medgemma:4b   # or set PLAINLABS_SLM=llama3.2:3b
+# 1. One-time setup
+brew install ollama        # or https://ollama.com
+ollama pull medgemma:4b    # ~3.3 GB  (or set PLAINLABS_SLM=llama3.2:3b)
+brew install tesseract     # only for photo (image) reports
+uv sync                    # uv: https://docs.astral.sh/uv/
 
-# 2. Python env (uv: https://docs.astral.sh/uv/)
-uv sync
-brew install tesseract         # only needed for photo (image) reports
-
-# 3a. UI — upload, brief, and chat
+# 2. Run the UI — it starts Ollama and loads MedGemma for you
 uv run streamlit run app.py
 
-# 3b. or CLI
+# ...or the CLI (needs `ollama serve` running)
 uv run python -m plainlabs evals/golden/report_basic.txt
 ```
 

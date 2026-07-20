@@ -8,12 +8,24 @@ from pathlib import Path
 
 import streamlit as st
 
-from plainlabs.config import DISCLAIMER
+from plainlabs.bootstrap import ensure_ollama, warm
+from plainlabs.config import DISCLAIMER, SLM_MODEL
 from plainlabs.graph import analyze
 from plainlabs.skills.chat import chat_answer
 from plainlabs.skills.profile import extract_profile_facts, merge_profile
 
 st.set_page_config(page_title="PlainLabs", page_icon="🩺", layout="centered")
+
+# Bring up Ollama + MedGemma automatically, once per session.
+if not st.session_state.get("ollama_ready"):
+    with st.spinner(f"Starting Ollama and loading {SLM_MODEL} (first launch is slow)…"):
+        ok, msg = ensure_ollama()
+        if ok:
+            warm()
+            st.session_state.ollama_ready = True
+        else:
+            st.error(msg)
+            st.stop()
 
 _STATUS_UI = {  # status -> (streamlit box, emoji)
     "critical": (st.error, "🚨"),
@@ -33,6 +45,7 @@ st.caption("Understand your lab report in plain language. Runs locally · not a 
 
 # --- sidebar: session memory ---
 with st.sidebar:
+    st.caption(f"🟢 Ollama running · {SLM_MODEL}")
     st.subheader("What I know about you")
     if st.session_state.profile:
         for fact in st.session_state.profile:
