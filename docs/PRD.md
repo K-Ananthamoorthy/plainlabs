@@ -104,7 +104,7 @@ dangerous; (2) SLM-first heterogeneous cascade; (3) community knowledge packs (Y
 - No translations yet (v1.1 — pack field already reserved)
 - No FHIR/LOINC integration (packs carry optional `loinc:` field for later)
 - No fine-tuning (cascade first; LoRA on parse_values is a documented future path)
-- No mobile app in v1 — but v1 is architected for the port (see §15)
+- No mobile app (laptop/desktop only — dropped from scope 20 Jul 2026)
 - No multimodal image-understanding of reports (model supports it; extraction stays
   deterministic for auditability — revisit behind an experiment flag)
 
@@ -220,26 +220,4 @@ report card fully offline; evals green; traces visible; contribution path docume
 2. SLM: **gemma4:e2b-it-qat** via Ollama (llama.cpp `llama-server` documented alternative).
 3. Escalation provider: **Groq** (fast, free tier), config-switchable; `--local-only` supported.
 4. Tracing: **LangSmith** (hosted free tier).
-5. v1 is laptop (Python + LangGraph); mobile is v2 (§15).
-
-## 15. Roadmap — v2: PlainLabs Mobile
-
-Target: fully offline lab-report explainer on Android/iOS — a phone in a rural
-clinic with no internet. Foundation: the author's existing
-[localgpt-llama.rn](https://github.com/K-Ananthamoorthy/localgpt-llama.rn)
-(React Native + llama.rn, on-device GGUF inference, model management, hardware gating).
-
-Port map (v1 is architected so this is translation, not redesign):
-
-| v1 (Python laptop) | v2 (mobile) |
-|---|---|
-| gemma4 E2B QAT via Ollama | same weights, GGUF Q4 via llama.rn (wNa8o8/LiteRT variant not llama.cpp-compatible) |
-| packs/*.yaml | shipped in app bundle, unchanged |
-| deterministic safety core | mechanical Python→TS translation (comparisons + regex) |
-| skill prompts + few-shots | copied verbatim |
-| LangGraph explicit graph | TS state machine — portable because control flow is code, not model |
-| pypdf + tesseract | ML Kit on-device text recognition (better on phone photos) |
-| golden eval set | rerun against mobile build to prove parity |
-| Groq escalation | optional when online; default fully local |
-
-Sequencing: after v1 ships and stabilizes. Not started during the 2-day build.
+5. Laptop/desktop only. Mobile is explicitly out of scope.

@@ -1,0 +1,72 @@
+<svg viewBox="0 0 940 400" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="28" font-size="15" font-weight="bold" fill="#0f172a">PlainLabs — how one report flows</text>
+
+  <!-- legend -->
+  <rect x="560" y="16" width="14" height="14" rx="3" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="580" y="28" font-size="11" fill="#475569">SLM skill (language)</text>
+  <rect x="720" y="16" width="14" height="14" rx="3" fill="#ecfdf5" stroke="#10b981"/>
+  <text x="740" y="28" font-size="11" fill="#475569">deterministic (medicine)</text>
+
+  <!-- main pipeline row -->
+  <g>
+    <rect x="20"  y="70" width="120" height="54" rx="8" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="80" y="93" font-size="12.5" fill="#065f46" text-anchor="middle">extract_text</text>
+    <text x="80" y="110" font-size="10.5" fill="#047857" text-anchor="middle">pypdf · tesseract</text>
+
+    <rect x="170" y="70" width="120" height="54" rx="8" fill="#eff6ff" stroke="#3b82f6"/>
+    <text x="230" y="93" font-size="12.5" fill="#1e3a8a" text-anchor="middle">parse_values</text>
+    <text x="230" y="110" font-size="10.5" fill="#1d4ed8" text-anchor="middle">text → values</text>
+
+    <rect x="320" y="70" width="120" height="54" rx="8" fill="#eff6ff" stroke="#3b82f6"/>
+    <text x="380" y="93" font-size="12.5" fill="#1e3a8a" text-anchor="middle">normalize_name</text>
+    <text x="380" y="110" font-size="10.5" fill="#1d4ed8" text-anchor="middle">alias-match first</text>
+
+    <rect x="470" y="70" width="130" height="54" rx="8" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="535" y="90" font-size="12.5" fill="#065f46" text-anchor="middle">lookup_range</text>
+    <text x="535" y="107" font-size="12.5" fill="#065f46" text-anchor="middle">+ severity</text>
+
+    <rect x="630" y="70" width="120" height="54" rx="8" fill="#eff6ff" stroke="#3b82f6"/>
+    <text x="690" y="93" font-size="12.5" fill="#1e3a8a" text-anchor="middle">explain_value</text>
+    <text x="690" y="110" font-size="10.5" fill="#1d4ed8" text-anchor="middle">grounded, no dx</text>
+
+    <rect x="780" y="70" width="130" height="54" rx="8" fill="#f8fafc" stroke="#334155"/>
+    <text x="845" y="93" font-size="12.5" fill="#0f172a" text-anchor="middle">report card</text>
+    <text x="845" y="110" font-size="10.5" fill="#475569" text-anchor="middle">sorted + disclaimer</text>
+
+    <line x1="140" y1="97" x2="166" y2="97" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="290" y1="97" x2="316" y2="97" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="440" y1="97" x2="466" y2="97" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="600" y1="97" x2="626" y2="97" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="750" y1="97" x2="776" y2="97" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- severity branches from lookup_range -->
+  <text x="535" y="150" font-size="11" fill="#475569" text-anchor="middle">severity gate →</text>
+  <rect x="470" y="168" width="130" height="40" rx="8" fill="#fff7ed" stroke="#f97316"/>
+  <text x="535" y="185" font-size="11.5" fill="#7c2d12" text-anchor="middle">CRITICAL</text>
+  <text x="535" y="200" font-size="10" fill="#c2410c" text-anchor="middle">canned urgent msg</text>
+  <line x1="535" y1="124" x2="535" y2="166" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="548" y="145" font-size="10" fill="#c2410c">model NOT called</text>
+
+  <!-- key design note -->
+  <rect x="20" y="240" width="890" height="52" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="34" y="263" font-size="12.5" font-weight="bold" fill="#0f172a">Core rule: the model only does language; code does medicine.</text>
+  <text x="34" y="281" font-size="11.5" fill="#334155">Every normal / borderline / abnormal / critical status is a deterministic comparison over curated YAML packs — never model output. That is why a 2B model can safely front a health tool.</text>
+
+  <!-- roadmap row (dashed) -->
+  <text x="20" y="330" font-size="12" font-weight="bold" fill="#94a3b8">Roadmap (not built yet)</text>
+  <rect x="20"  y="342" width="200" height="40" rx="8" fill="none" stroke="#cbd5e1" stroke-dasharray="5 4"/>
+  <text x="120" y="366" font-size="11" fill="#94a3b8" text-anchor="middle">Tier-2 agentic web_search loop</text>
+  <rect x="240" y="342" width="200" height="40" rx="8" fill="none" stroke="#cbd5e1" stroke-dasharray="5 4"/>
+  <text x="340" y="366" font-size="11" fill="#94a3b8" text-anchor="middle">confidence gate → Groq escalate</text>
+  <rect x="460" y="342" width="180" height="40" rx="8" fill="none" stroke="#cbd5e1" stroke-dasharray="5 4"/>
+  <text x="550" y="366" font-size="11" fill="#94a3b8" text-anchor="middle">no-diagnosis filter · evals</text>
+  <rect x="660" y="342" width="180" height="40" rx="8" fill="none" stroke="#cbd5e1" stroke-dasharray="5 4"/>
+  <text x="750" y="366" font-size="11" fill="#94a3b8" text-anchor="middle">Streamlit UI · tracing</text>
+</svg>
