@@ -53,17 +53,31 @@ def _num(token: str) -> float | None:
         return None
 
 
+_FLAGS = {"-", "low", "high", "normal", "borderline", "h", "l", "abnormal"}
+
+
 def _parse_line(line: str) -> ParsedValue | None:
-    parts = [p.strip() for p in line.split("|")]
-    if len(parts) != 5:
+    """Tolerant parse: real reports add flag columns, so we locate fields by role
+    rather than fixed position. name = first field; value = first number after it;
+    range = last two numbers; unit = first non-number, non-flag token."""
+    parts = [p.strip() for p in line.split("|") if p.strip()]
+    if len(parts) < 2:
         return None
-    name, raw_value, unit, lo, hi = parts
-    value = _num(raw_value)
+    name, rest = parts[0], parts[1:]
+
+    value = v_idx = None
+    for i, p in enumerate(rest):
+        if (n := _num(p)) is not None:
+            value, v_idx = n, i
+            break
     if not name or value is None:
         return None
-    lo_n, hi_n = _num(lo), _num(hi)
-    rng = (lo_n, hi_n) if lo_n is not None and hi_n is not None and lo_n <= hi_n else None
-    return ParsedValue(name=name, value=value, unit=unit if unit != "-" else "", report_range=rng)
+
+    after = rest[v_idx + 1:]
+    nums = [n for p in after if (n := _num(p)) is not None]
+    rng = (nums[-2], nums[-1]) if len(nums) >= 2 and nums[-2] <= nums[-1] else None
+    unit = next((p for p in after if _num(p) is None and p.lower() not in _FLAGS), "")
+    return ParsedValue(name=name, value=value, unit=unit, report_range=rng)
 
 
 def parse_values(report_text: str) -> list[ParsedValue]:

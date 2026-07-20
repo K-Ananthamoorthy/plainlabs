@@ -9,8 +9,15 @@ from plainlabs.llm import ask
 from plainlabs.packs import Pack
 
 PROMPT = """A lab report lists a test called "{name}".
-Which of these known test ids is it, if any?
+Match it to a known id ONLY IF it is the SAME test — an abbreviation, synonym, or
+spelling variant. If it is a DIFFERENT but related-sounding test, answer UNKNOWN.
 
+Rules:
+- "Mean Platelet Volume" (MPV) is NOT "platelets" (platelet count) -> UNKNOWN
+- A differential component like Neutrophils or Lymphocytes is NOT "wbc" -> UNKNOWN
+- "S. Creatinine" IS "creatinine"; "Glycosylated Hb" IS "hba1c"
+
+Known ids:
 {catalog}
 
 Answer with EXACTLY one id from the list, or the word UNKNOWN. Nothing else.
